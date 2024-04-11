@@ -76,7 +76,16 @@ const main = {
          // Display final score
          console.log("Your final score:", this.score);
          console.log("Computer's final score:", this.pc_score);
-         confirm(`Your final score: ${this.score} vs Computer's final score: ${this.pc_score}, do you want to try again? `);
+         
+         // Ask if user wants to play again
+         const playAgain = confirm(`Your final score: ${this.score} vs Computer's final score: ${this.pc_score},
+          Do you want to try again? `);
+         if (playAgain) {
+            // Reset scores and start a new game
+            this.score = 0;
+            this.pc_score = 0;
+            this.game();
+         }
       } catch (error) {
          console.log(error.message);
       }
